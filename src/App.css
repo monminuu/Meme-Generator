@@ -1,1 +1,47 @@
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Karla", sans-serif;
+    margin: 0;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    height: 65px;
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    color: white;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+.header-image{
+    height: 150%;
+    margin-right: 30px;
+}
+
+.header-title{
+    font-size: 30px;
+    margin-right: auto;
+}
+
+.header-project{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.form{
+    padding: 50px 50px 0px 50px;
+}
+
+.meme-button{
+    padding: 50px;
+}
+
+.btn-flat {
+    background-color: #982FBD;
+    color: white;
+}
