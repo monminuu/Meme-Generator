@@ -1,82 +1,43 @@
-import React,{useState,useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import Buffer from "buffer";
+import {Card} from "react-bootstrap";
 
 
-function Pictures() {
+function Pictures(props) {
     const [pictures,setPictures]=useState([])
     useEffect(() => {
-        fetchPictures();
+        fetchPictures(props.topText, props.bottomText, props.imageName, props.fontName);
     }, [])
     useEffect(() => {
-        // console.log(pictures);
-
-        // let base64ImageString = Buffer.from(pictures, 'binary').toString('base64')
-        //
-        if(typeof pictures === 'string'){
-            // let enc = new TextEncoder(); // always utf-8
-            // let encPicture = enc.encode(pictures);
-
-            // let base64ImageString = Buffer.from(encPicture, 'binary').toString('base64');
-            let srcValue = "data:image/jpeg;base64,"+pictures;
-            console.log(srcValue + "##xxxx");
-        }
-
-        // let binaryData = [];
-        // binaryData.push(pictures);
-        // console.log(window.webkitURL.createObjectURL(new Blob([pictures], {type: "image/jpeg"})));
-
+        console.log(pictures);
     }, [pictures])
-    const fetchPictures = async () => {
+    const fetchPictures = async (topText, bottomText, imageName, fontName) => {
 
         let config = {
             method: 'get',
-            url: 'https://ronreiter-meme-generator.p.rapidapi.com/meme?top=Top%20Text&bottom=Hello&meme=2nd-Term-Obama&font_size=50&font=Arial',
+            url: 'https://ronreiter-meme-generator.p.rapidapi.com/meme?top='+topText+'&bottom='+bottomText+'&meme='+imageName+'&font_size=50&font='+fontName,
             headers: {
                 'X-RapidAPI-Host': 'ronreiter-meme-generator.p.rapidapi.com',
                 'X-RapidAPI-Key': '1f7eb6734cmsh2551fc8deef0ff0p1781b6jsn9e099f5c6b1d'
-            }
+            },
+            responseType: "blob"
         };
 
         const response = await axios(config);
-        setPictures(response.data)
+        setPictures(response.data);
         console.log(response);
     }
 
-
-    let x = 1;
-
-    //let b64 = window.btoa(unescape(encodeURIComponent(pictures)));
-
-    //let b64Response = btoa(pictures);
-    //let outputImg = document.createElement('img');
-    //outputImg.src = 'data:image/png;base64,'+b64Response;
-
-    //document.body.appendChild(outputImg);
-
-
-
-    // const urlCreator = window.URL || window.webkitURL;
-    // console.log(urlCreator.createObjectURL(pictures));
-    // document.getElementById('myImage').src = urlCreator.createObjectURL(pictures);
-
-    let srcValue = "data:image/jpeg;base64,"+pictures;
+    let binaryData = [];
+    binaryData.push(pictures);
+    const url = URL.createObjectURL(new Blob(binaryData, {type: "application/jpeg"}));
 
     return (
-        <div className="Pictures">
-            {
-                // pictures && pictures.map(picture=>{
-                //     return(
-                //         <div key={x++} style={{alignItems:'center',margin:'20px 60px'}}>
-                //             <h4>{picture}</h4>
-                //         </div>
-                //     )
-                //
-                // })
-                <img src={srcValue} />
-
-            }
-        </div>
+        <Card style={{ width: '30rem' }}>
+            <Card.Img variant="top" src={url}/>
+            <Card.Title>Here is your MEME Image!</Card.Title>
+            <Card.Text>Right click on the image and save it to your computer!</Card.Text>
+        </Card>
     );
 }
 

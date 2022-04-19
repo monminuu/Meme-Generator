@@ -12,7 +12,9 @@ function App() {
       <Header />
       <Meme />
       <Api />
-      <Pictures />
+        <center>
+            <Pictures topText = "MyTopText" bottomText = "MyBottomText" imageName = "Bad-Luck-Brian" fontName = "Impact"/>
+        </center>
     </div>
   );
 }

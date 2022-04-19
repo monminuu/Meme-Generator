@@ -22,27 +22,27 @@ function Api() {
         };
 
         const response = await axios(config);
-        setComments(response.data)
+        setComments(response.data);
     }
 
     let x = 1;
     return (
         <div className="Api">
-            {
-                //comments && comments.map(comment=>{
-                    return(
-                        <div key={x++} style={{alignItems:'center',margin:'20px 60px'}}>
-                            // <DropdownButton id="dropdown-item-button" title="Dropdown button">
-                            //     <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>
-                            //     <Dropdown.Item as="button">Action</Dropdown.Item>
-                            //     <Dropdown.Item as="button">Another action</Dropdown.Item>
-                            //     <Dropdown.Item as="button">Something else</Dropdown.Item>
-                            // </DropdownButton>
-                        </div>
-                    )
+            {/*{*/}
+            {/*    //comments && comments.map(comment=>{*/}
+            {/*        return(*/}
+            {/*            <div key={x++} style={{alignItems:'center',margin:'20px 60px'}}>*/}
+            {/*                // <DropdownButton id="dropdown-item-button" title="Dropdown button">*/}
+            {/*                //     <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>*/}
+            {/*                //     <Dropdown.Item as="button">Action</Dropdown.Item>*/}
+            {/*                //     <Dropdown.Item as="button">Another action</Dropdown.Item>*/}
+            {/*                //     <Dropdown.Item as="button">Something else</Dropdown.Item>*/}
+            {/*                // </DropdownButton>*/}
+            {/*            </div>*/}
+            {/*        )*/}
 
-                })
-            }
+            {/*    })*/}
+            {/*}*/}
         </div>
     );
 }
