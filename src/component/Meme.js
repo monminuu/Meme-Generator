@@ -5,20 +5,8 @@ import Button from 'react-bootstrap/Button';
 
 
 export default function Meme() {
-
-
-
-
-    // let data = [
-    //     "Hello", "World"
-    // ];
-
-
     return (
         <div>
-            {/*{data.map(item => {*/}
-            {/*    return <p>{item}</p>*/}
-            {/*})}*/}
             <Form>
                 <Row className="form">
                     <Col>
